@@ -1,0 +1,40 @@
+.root {
+  @apply bg-apple text-gray-800 cursor-pointer inline-flex px-4 rounded-sm leading-6  transition ease-in-out duration-150 shadow-sm font-semibold text-center justify-center py-2 border border-transparent items-center;
+}
+
+.root:hover {
+  @apply bg-apple-8 text-gray-800 border border-apple-10;
+}
+
+.root:focus {
+  @apply outline-none ring-2 ring-snuff-900 ring-opacity-50;
+}
+
+.root[data-active] {
+  @apply bg-apple-6;
+}
+
+.loading {
+  @apply bg-zinc-700 text-zinc-500 border-zinc-600 cursor-not-allowed;
+}
+
+.slim {
+  @apply py-2 px-4 transform-none normal-case;
+}
+
+.link {
+  @apply py-2 px-4 transform-none normal-case  bg-transparent hover:bg-transparent text-gray-300 hover:text-gray-200;
+}
+
+.cta {
+  @apply py-2 px-4 text-lg hover:text-gray-200 hover:bg-snuff-800 bg-snuff-900 text-gray-200 border border-snuff-900 normal-case transform-none;
+}
+
+.disabled,
+.disabled:hover {
+  @apply text-zinc-400 border-zinc-600 bg-zinc-700 cursor-not-allowed;
+  filter: grayscale(1);
+  -webkit-transform: translateZ(0);
+  -webkit-perspective: 1000;
+  -webkit-backface-visibility: hidden;
+}

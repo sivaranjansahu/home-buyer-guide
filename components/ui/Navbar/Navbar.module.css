@@ -1,0 +1,21 @@
+.root {
+  @apply sticky top-0 bg-slate-50 z-40 transition-all duration-150 h-16 md:h-20;
+}
+
+.link {
+  @apply inline-flex items-center leading-6 font-medium transition ease-in-out duration-75 cursor-pointer text-zinc-900  p-1 border-amber-300;
+}
+
+.link:hover {
+  @apply text-apple-8;
+}
+
+.link:focus {
+  @apply outline-none text-zinc-100 ring-2 ring-pink-500 ring-opacity-50;
+}
+.highlight {
+  @apply px-2 py-1 bg-apple-11 text-gray-200 font-semibold hover:bg-apple-8 hover:text-gray-800 rounded-sm;
+}
+.logo {
+  @apply cursor-pointer rounded-full transform duration-100 ease-in-out;
+}

@@ -30,7 +30,7 @@ async function generateContent(prompt: string) {
         const response = await openAiClient.chat.completions.create({
             model: 'gpt-4o-mini',
             messages: [{ role: 'user', content: prompt }],
-            max_tokens: 1500, // Adjust as needed
+            max_tokens: 1000, // Adjust as needed
             temperature: 0.7,
         });
         return response?.choices[0]?.message?.content?.trim();
@@ -86,7 +86,7 @@ export async function generateEbook(
         subsectionTitle: string;
         content: string;
     }>[] = [];
-    const limit = pLimit(3); // Limit the number of concurrent API calls to 3
+    const limit = pLimit(30); // Limit the number of concurrent API calls to 3
 
     for (const section of ebookStructure) {
         ebookContent += `## ${section.title}\n\n`;
@@ -100,7 +100,10 @@ export async function generateEbook(
                 .toLowerCase()
                 .replace(/\s+/g, '-')})\n`;
 
-            const prompt = `Write a detailed section about "${subsection}" for an ebook section titled "${section.title}". Make sure it's informative and engaging.`;
+            const prompt = `You are writing an ebook for the first time home buyers who are inexperienced in real estate investment. Be empathetic to their requirements.
+            Write a subsection on the topic - 
+            "${subsection}" which will go in to the section named "${section.title}". 
+            Make sure it's informative and engaging.`;
 
             // Create a task for each content generation
             const task = limit(async () => {

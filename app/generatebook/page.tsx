@@ -1,6 +1,8 @@
 "use client"
 import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
+import { remark } from 'remark';
+import html from 'remark-html';
 
 interface EbookSection {
     title: string;
@@ -77,9 +79,6 @@ function EbookGenerator() {
 
                 </div>
             )}
-            <ReactMarkdown>
-                {markdown}
-            </ReactMarkdown>
         </div>
     );
 }

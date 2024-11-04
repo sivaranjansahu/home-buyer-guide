@@ -7,6 +7,9 @@ import OpenAI from 'openai';
 
 import pLimit from 'p-limit';
 
+export const config = {
+    maxDuration: 60,
+};
 // Initialize OpenAI API
 const openAiClient = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY ?? '',
@@ -39,9 +42,7 @@ async function generateContent(prompt: string) {
         return '';
     }
 }
-export const config = {
-    maxDuration: 60,
-};
+
 
 // API Route Handler
 export default async function handler(
@@ -86,7 +87,7 @@ export async function generateEbook(
         subsectionTitle: string;
         content: string;
     }>[] = [];
-    const limit = pLimit(30); // Limit the number of concurrent API calls to 3
+    const limit = pLimit(100); // Limit the number of concurrent API calls to 3
 
     for (const section of ebookStructure) {
         ebookContent += `## ${section.title}\n\n`;

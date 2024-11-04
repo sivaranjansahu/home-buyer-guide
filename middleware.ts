@@ -1,5 +1,5 @@
 import { createMiddlewareClient } from '@supabase/auth-helpers-nextjs'
-import { NextResponse,NextRequest, NextFetchEvent } from 'next/server'
+import { NextResponse, NextRequest, NextFetchEvent } from 'next/server'
 import { Redis } from '@upstash/redis'
 import type { Database } from '@/types_db'
 
@@ -13,7 +13,7 @@ import type { Database } from '@/types_db'
 // });
 
 
-export async function middleware(req: NextRequest,event:NextFetchEvent) {
+export async function middleware(req: NextRequest, event: NextFetchEvent) {
   console.log('middleare hit')
   const res = NextResponse.next()
   const supabase = createMiddlewareClient<Database>({ req, res })

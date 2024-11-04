@@ -39,6 +39,9 @@ async function generateContent(prompt: string) {
         return '';
     }
 }
+export const config = {
+    maxDuration: 60,
+};
 
 // API Route Handler
 export default async function handler(
